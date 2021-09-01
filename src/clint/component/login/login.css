@@ -1,0 +1,60 @@
+.loginSec{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    width: 55%;
+}
+
+.loginForm{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    width: 60%;
+}
+.loginForm img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginImg{
+    background: #65629c;
+    border-radius: 10px;
+    padding: 50px;
+    
+}
+.loginImg img{
+    width: 180px;
+    margin: auto;
+}
+
+
+
+
+.error{
+    color: red;
+    
+}
+
+@media screen and (max-width: 950px) {
+    
+    .loginSec{
+        width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .loginImg{
+        display: none;
+    }
+    .loginSec{
+        width: 100%;
+    }
+    .loginForm{
+        width: 100%;
+    }
+  }

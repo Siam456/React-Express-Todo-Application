@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.done{
+    background: red;
+}
+
+.todo-add-por{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 50%;   
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.todo-show{  
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    margin: 60px;
+    overflow: hidden;
+   
+    text-align: center;
+    
+    
+}
+
+.card-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.card{
+    transition: .5s ease-out;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.card:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.todo-form-style{
+    width: 100%;
+    margin-right: 10px;
+}
+
+.img-sec-up{
+    display: none;
+    
+}
+
+.error{
+    color: red;
+    text-align: left;
+    margin: 0;
+    padding-left: 15px;
+
+}
+
+.error-input{
+    background: none;
+    border: 1px solid red;
+}
+
+
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    .todo-add-por{
+        top: 65%;
+        width: 100%;
+    }
+    .img-sec-up{
+        text-align: center;
+        display: block;
+        margin-top: 50px;
+        
+    }
+
+    .todo-show{
+        margin-left: 0;
+        width: 100%; 
+        
+    }
+
+    
+    
+  }
+
+
