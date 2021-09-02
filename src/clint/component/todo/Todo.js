@@ -71,8 +71,8 @@ const Todo = () => {
 
     //delete todo
 
-    const deletetodo = async (e) => {
-       await fetch(`/todo/${e.target.value}`, {
+    const deletetodo = async (id) => {
+       await fetch(`/todo/${id}`, {
             method: 'DELETE'
         });
 
@@ -82,8 +82,9 @@ const Todo = () => {
     }
 
     //update todo process
-    const updateProcess =(e) => {
-        axios.put(`/todo/${e.target.value}`)
+    const updateProcess =(a) => {
+        //console.log(a);
+        axios.put(`/todo/${a}`)
         .then(res => {
             console.log(res)
             window.location.href = "http://localhost:3000/people";
@@ -194,6 +195,8 @@ const Todo = () => {
                             const probTitle = todo.title.split(' ');
                             //console.log(todo.title);
 
+                            //const id = todo._id;
+
                             return <div key={index} className="card text-center" style={{margin: '30px', width: '220px', borderRadius: '10px'}} id='todoCard'>
                                     {tdate < yesterday ? todo.process === 'done' ?  cardHeaderGreen : cardHeaderDate : todo.process === 'done' ?  cardHeaderGreen : cardHeader}
                                     
@@ -210,14 +213,14 @@ const Todo = () => {
                                             || (probTitle[0] === 'problem' && probTitle[1] === 'solving')
                                             || (probTitle[0] === 'Problem' && probTitle[1] === 'Solving') 
                                             ?  <span style={{color : '#65629c'}}>count: {todo.count}
-                                            <button style={{marginLeft: '5px'}} value={todo._id} onClick={(e) => {
-                                                //console.log(e.target.value)
+                                            <button style={{marginLeft: '5px'}} onClick={(e) => {
+                                                //console.log(todo._id)
 
                                                 //update count
-                                                axios.put(`/todo/count/${e.target.value}`)
+                                                axios.put(`/todo/count/${todo._id}`)
                                                 .then(res => {
                                                     console.log(res)
-                                                    window.location.href = "http://localhost:3000/people";
+                                                    //window.location.href = "http://localhost:3000/people";
                                                 })
                                                 .catch(err => {
                                                     window.location.href = "http://localhost:3000/people";
@@ -251,8 +254,8 @@ const Todo = () => {
                                         <div style={{marginBottom: '10px'}}>
                                             <span style={{fontWeight: 'bold'}}> Status: {todo.process === 'done' ? <span className="text-success"  style={{fontWeight: 'bold'}} > {todo.process} </span> : <span className="text-danger" style={{fontWeight: 'bold' , textDecoration: 'line-through'}} > {todo.process} </span>}</span>
                                         </div>
-                                        <button className="btn btn-primary m-1" onClick={updateProcess} value={todo._id}>Done</button>
-                                        <button className="btn btn-danger" onClick={deletetodo} value={todo._id}>Delete</button>
+                                        <button className="btn btn-primary m-1" onClick={() => updateProcess(todo._id)} >Done</button>
+                                        <button className="btn btn-danger" onClick={() => deletetodo(todo._id)} >Delete</button>
                                     </div>
                                     <div className="card-footer text-muted">
                                         Created at: {formattedDate}

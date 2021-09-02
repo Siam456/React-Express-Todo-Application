@@ -156,7 +156,8 @@ const People = () => {
                 setpeople(res.data.users)
             //}
         })
-        .catch(err => console.log(err));
+        .catch(err => {console.log(err);
+            window.location.href = "http://localhost:3000/loginfirst";});
 
         
     });
